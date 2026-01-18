@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory Answers - Questions 2-6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .question {
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .question h2 {
+            color: #2c3e50;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .answer {
+            line-height: 1.8;
+            color: #34495e;
+            font-size: 1.05rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-block .keyword {
+            color: #f687b3;
+        }
+
+        .code-block .string {
+            color: #68d391;
+        }
+
+        .code-block .comment {
+            color: #718096;
+            font-style: italic;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .comparison-table tr:hover td {
+            background: #f7fafc;
+        }
+
+        .sub-section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        .sub-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .question {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Full Stack Frameworks - Theory Answers</h1>
+        <p class="subtitle">Questions 2-6 Solutions</p>
+
+        <!-- Question 2: MongoDB Operations -->
+        <div class="question">
+            <span class="question-number">Question 2</span>
+            <h2>MongoDB Operations - Employee Information Database</h2>
+            <div class="answer">
+                <div class="sub-section">
+                    <h3>(a) Create a Database for storing Employee Information (2 Marks)</h3>
+                    <div class="code-block">
+<span class="comment">// Switch to or create the database</span>
+use employeeDB
+
+<span class="comment">// Verify the current database</span>
+db
+
+<span class="comment">// Create a collection (automatically created when inserting first document)</span>
+db.createCollection(<span class="string">"employees"</span>)
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>(b) Create MongoDB Documents (2 Marks)</h3>
+                    <div class="code-block">
+<span class="comment">// (i) Create document with Eno: B101</span>
+db.employees.insertOne({
+    Eno: <span class="string">"B101"</span>,
+    Name: <span class="string">"Ramesh"</span>,
+    DateOfJoining: <span class="string">"10-aug-2025"</span>,
+    experience: 3
+})
+
+<span class="comment">// (ii) Create document with Eno: B101_1</span>
+db.employees.insertOne({
+    Eno: <span class="string">"B101_1"</span>,
+    Name: <span class="string">"Ramesh kumar"</span>,
+    DateOfJoining: <span class="string">"11-aug-2025"</span>,
+    experience: 13
+})
+
+<span class="comment">// (iii) Create document with Eno: B102</span>
+db.employees.insertOne({
+    Eno: <span class="string">"B102"</span>,
+    Name: <span class="string">"Ravi"</span>,
+    DateOfJoining: <span class="string">"1-aug-2025"</span>,
+    experience: 3
+})
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>(c) Search for document with Eno B101 (2 Marks)</h3>
+                    <div class="code-block">
+<span class="comment">// Find document with Eno: B101</span>
+db.employees.find({ Eno: <span class="string">"B101"</span> })
+
+<span class="comment">// For better formatted output</span>
+db.employees.find({ Eno: <span class="string">"B101"</span> }).pretty()
+
+<span class="comment">// Find one document</span>
+db.employees.findOne({ Eno: <span class="string">"B101"</span> })
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>(d) Update document with Eno B101_1 (2 Marks)</h3>
+                    <div class="code-block">
+<span class="comment">// Update the document with new values</span>
+db.employees.updateOne(
+    { Eno: <span class="string">"B101_1"</span> },
+    {
+        $set: {
+            Name: <span class="string">"Rahul"</span>,
+            DateOfJoining: <span class="string">"08-Sep-2025"</span>,
+            experience: 12
+        }
+    }
+)
+
+<span class="comment">// Verify the update</span>
+db.employees.find({ Eno: <span class="string">"B101_1"</span> }).pretty()
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>(e) Remove document with Eno B101 (2 Marks)</h3>
+                    <div class="code-block">
+<span class="comment">// Delete the document with Eno: B101</span>
+db.employees.deleteOne({ Eno: <span class="string">"B101"</span> })
+
+<span class="comment">// Verify deletion - should return no results</span>
+db.employees.find({ Eno: <span class="string">"B101"</span> })
+
+<span class="comment">// View all remaining documents</span>
+db.employees.find().pretty()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3: Class vs Function Components -->
+        <div class="question">
+            <span class="question-number">Question 3</span>
+            <h2>Class Components vs Function Components in React</h2>
+            <div class="answer">
+                <p>React components can be created using either <span class="highlight">Class Components</span> or <span class="highlight">Function Components</span>. Both serve the same purpose but have different syntax and features.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Class Components</th>
+                            <th>Function Components</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Syntax</strong></td>
+                            <td>ES6 class extending React.Component</td>
+                            <td>JavaScript function returning JSX</td>
+                        </tr>
+                        <tr>
+                            <td><strong>State Management</strong></td>
+                            <td>this.state and this.setState()</td>
+                            <td>useState() hook</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lifecycle Methods</strong></td>
+                            <td>componentDidMount, componentDidUpdate, etc.</td>
+                            <td>useEffect() hook</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Code Length</strong></td>
+                            <td>More verbose</td>
+                            <td>More concise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Performance</strong></td>
+                            <td>Slightly slower</td>
+                            <td>Slightly faster</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="sub-section">
+                    <h3>Class Component Example:</h3>
+                    <div class="code-block">
+import React from <span class="string">'react'</span>;
+
+class Welcome extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0,
+            message: <span class="string">'Hello from Class Component'</span>
+        };
+    }
+
+    incrementCount = () => {
+        this.setState({ count: this.state.count + 1 });
+    }
+
+    componentDidMount() {
+        console.log(<span class="string">'Component mounted'</span>);
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;{this.state.message}&lt;/h1&gt;
+                &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+                &lt;button onClick={this.incrementCount}&gt;
+                    Increment
+                &lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+export default Welcome;
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Function Component Example (with Hooks):</h3>
+                    <div class="code-block">
+import React, { useState, useEffect } from <span class="string">'react'</span>;
+
+function Welcome() {
+    const [count, setCount] = useState(0);
+    const [message, setMessage] = useState(<span class="string">'Hello from Function Component'</span>);
+
+    const incrementCount = () => {
+        setCount(count + 1);
+    };
+
+    useEffect(() => {
+        console.log(<span class="string">'Component mounted'</span>);
+    }, []);
+
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;{message}&lt;/h1&gt;
+            &lt;p&gt;Count: {count}&lt;/p&gt;
+            &lt;button onClick={incrementCount}&gt;
+                Increment
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default Welcome;
+                    </div>
+                </div>
+
+                <p style="margin-top: 1.5rem;">
+                    <strong>Key Differences:</strong>
+                </p>
+                <ul>
+                    <li>Function components are <strong>simpler and more concise</strong></li>
+                    <li>Class components use <code>this</code> keyword, function components don't</li>
+                    <li>Function components with hooks are the <strong>modern React approach</strong></li>
+                    <li>Both can achieve the same functionality</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Question 4: Complete the Code -->
+        <div class="question">
+            <span class="question-number">Question 4</span>
+            <h2>Complete the Missing Code - FormattedSalary Component</h2>
+            <div class="answer">
+                <p>Here is the completed code with all missing sections filled in:</p>
+                <div class="code-block">
+import React from <span class="string">'react'</span>;
+
+class FormattedSalary extends React.Component {
+    <span class="comment">// Constructor to initialize state</span>
+    constructor(props) {
+        super(props);
+        this.state = {
+            salary: 0
+        };
+    }
+
+    <span class="comment">// Method to convert and format salary</span>
+    convert(sal) {
+        return parseFloat(sal).toFixed(1);
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;h2&gt;Formatted Salary&lt;/h2&gt;
+                &lt;p&gt;Original Salary: ${this.state.salary}&lt;/p&gt;
+                &lt;p&gt;Formatted: ${this.convert(this.state.salary)}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+export default FormattedSalary;
+                </div>
+
+                <div class="sub-section">
+                    <h3>Explanation of Missing Sections:</h3>
+                    <ul>
+                        <li><strong>Constructor:</strong> Added to initialize component state with a salary value</li>
+                        <li><strong>Render method content:</strong> Displays both original and formatted salary</li>
+                        <li><strong>Export statement:</strong> Uses <code>FormattedSalary</code> (the component name)</li>
+                    </ul>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Note:</h3>
+                    <p>The component includes a <code>convert()</code> method that formats the salary value to one decimal place using <code>parseFloat()</code> and <code>toFixed(1)</code>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5: List for Students Marks -->
+        <div class="question">
+            <span class="question-number">Question 5</span>
+            <h2>Using Lists to Display Student Marks</h2>
+            <div class="answer">
+                <p>In React, we can use the <span class="highlight">map()</span> function to render lists of data. Here's how to display marks for five students:</p>
+
+                <div class="sub-section">
+                    <h3>Example: Student Marks Component</h3>
+                    <div class="code-block">
+import React from <span class="string">'react'</span>;
+
+function StudentMarks() {
+    <span class="comment">// Array of student objects with marks</span>
+    const students = [
+        { id: 1, name: <span class="string">"Alice"</span>, marks: 85 },
+        { id: 2, name: <span class="string">"Bob"</span>, marks: 92 },
+        { id: 3, name: <span class="string">"Charlie"</span>, marks: 78 },
+        { id: 4, name: <span class="string">"Diana"</span>, marks: 95 },
+        { id: 5, name: <span class="string">"Eve"</span>, marks: 88 }
+    ];
+
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;Student Marks List&lt;/h2&gt;
+            &lt;ul&gt;
+                {students.map((student) => (
+                    &lt;li key={student.id}&gt;
+                        {student.name}: {student.marks} marks
+                    &lt;/li&gt;
+                ))}
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default StudentMarks;
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Advanced Example with Table:</h3>
+                    <div class="code-block">
+import React from <span class="string">'react'</span>;
+
+function StudentMarksTable() {
+    const students = [
+        { id: 1, name: <span class="string">"Alice"</span>, subject: <span class="string">"Math"</span>, marks: 85, grade: <span class="string">"A"</span> },
+        { id: 2, name: <span class="string">"Bob"</span>, subject: <span class="string">"Science"</span>, marks: 92, grade: <span class="string">"A+"</span> },
+        { id: 3, name: <span class="string">"Charlie"</span>, subject: <span class="string">"English"</span>, marks: 78, grade: <span class="string">"B"</span> },
+        { id: 4, name: <span class="string">"Diana"</span>, subject: <span class="string">"History"</span>, marks: 95, grade: <span class="string">"A+"</span> },
+        { id: 5, name: <span class="string">"Eve"</span>, subject: <span class="string">"Geography"</span>, marks: 88, grade: <span class="string">"A"</span> }
+    ];
+
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;Student Performance Report&lt;/h2&gt;
+            &lt;table&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;ID&lt;/th&gt;
+                        &lt;th&gt;Name&lt;/th&gt;
+                        &lt;th&gt;Subject&lt;/th&gt;
+                        &lt;th&gt;Marks&lt;/th&gt;
+                        &lt;th&gt;Grade&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    {students.map((student) => (
+                        &lt;tr key={student.id}&gt;
+                            &lt;td&gt;{student.id}&lt;/td&gt;
+                            &lt;td&gt;{student.name}&lt;/td&gt;
+                            &lt;td&gt;{student.subject}&lt;/td&gt;
+                            &lt;td&gt;{student.marks}&lt;/td&gt;
+                            &lt;td&gt;{student.grade}&lt;/td&gt;
+                        &lt;/tr&gt;
+                    ))}
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default StudentMarksTable;
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Key Points:</h3>
+                    <ul>
+                        <li><strong>map() function:</strong> Transforms each item in an array into JSX elements</li>
+                        <li><strong>key prop:</strong> Required for list items to help React identify changes efficiently</li>
+                        <li><strong>key should be unique:</strong> Use IDs or unique identifiers, not array indices</li>
+                        <li><strong>Arrow functions:</strong> Provide concise syntax for mapping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6: Routing in ReactJS -->
+        <div class="question">
+            <span class="question-number">Question 6</span>
+            <h2>Routing in ReactJS</h2>
+            <div class="answer">
+                <p>React Router is a standard library for routing in React applications. It enables navigation between different views/components without page refresh.</p>
+
+                <div class="sub-section">
+                    <h3>Installation:</h3>
+                    <div class="code-block">
+<span class="comment"># Using npm</span>
+npm install react-router-dom
+
+<span class="comment"># Using yarn</span>
+yarn add react-router-dom
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Basic Routing Example:</h3>
+                    <div class="code-block">
+import React from <span class="string">'react'</span>;
+import { BrowserRouter, Routes, Route, Link } from <span class="string">'react-router-dom'</span>;
+
+<span class="comment">// Component definitions</span>
+function Home() {
+    return &lt;h2&gt;Home Page&lt;/h2&gt;;
+}
+
+function About() {
+    return &lt;h2&gt;About Page&lt;/h2&gt;;
+}
+
+function Contact() {
+    return &lt;h2&gt;Contact Page&lt;/h2&gt;;
+}
+
+function App() {
+    return (
+        &lt;BrowserRouter&gt;
+            &lt;nav&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;Link to=<span class="string">"/"</span>&gt;Home&lt;/Link&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;Link to=<span class="string">"/about"</span>&gt;About&lt;/Link&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;Link to=<span class="string">"/contact"</span>&gt;Contact&lt;/Link&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+
+            &lt;Routes&gt;
+                &lt;Route path=<span class="string">"/"</span> element={&lt;Home /&gt;} /&gt;
+                &lt;Route path=<span class="string">"/about"</span> element={&lt;About /&gt;} /&gt;
+                &lt;Route path=<span class="string">"/contact"</span> element={&lt;Contact /&gt;} /&gt;
+            &lt;/Routes&gt;
+        &lt;/BrowserRouter&gt;
+    );
+}
+
+export default App;
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Advanced Example with URL Parameters:</h3>
+                    <div class="code-block">
+import React from <span class="string">'react'</span>;
+import { 
+    BrowserRouter, 
+    Routes, 
+    Route, 
+    Link, 
+    useParams,
+    useNavigate
+} from <span class="string">'react-router-dom'</span>;
+
+<span class="comment">// Component to display user profile</span>
+function UserProfile() {
+    const { userId } = useParams();
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;User Profile&lt;/h2&gt;
+            &lt;p&gt;User ID: {userId}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+
+<span class="comment">// Component with programmatic navigation</span>
+function Dashboard() {
+    const navigate = useNavigate();
+
+    const goToProfile = () => {
+        navigate(<span class="string">'/user/123'</span>);
+    };
+
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;Dashboard&lt;/h2&gt;
+            &lt;button onClick={goToProfile}&gt;
+                Go to Profile
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+
+function App() {
+    return (
+        &lt;BrowserRouter&gt;
+            &lt;nav&gt;
+                &lt;Link to=<span class="string">"/"</span>&gt;Home&lt;/Link&gt; | 
+                &lt;Link to=<span class="string">"/dashboard"</span>&gt;Dashboard&lt;/Link&gt; | 
+                &lt;Link to=<span class="string">"/user/101"</span>&gt;User 101&lt;/Link&gt;
+            &lt;/nav&gt;
+
+            &lt;Routes&gt;
+                &lt;Route path=<span class="string">"/"</span> element={&lt;Home /&gt;} /&gt;
+                &lt;Route path=<span class="string">"/dashboard"</span> element={&lt;Dashboard /&gt;} /&gt;
+                &lt;Route path=<span class="string">"/user/:userId"</span> element={&lt;UserProfile /&gt;} /&gt;
+                &lt;Route path=<span class="string">"*"</span> element={&lt;NotFound /&gt;} /&gt;
+            &lt;/Routes&gt;
+        &lt;/BrowserRouter&gt;
+    );
+}
+
+function NotFound() {
+    return &lt;h2&gt;404 - Page Not Found&lt;/h2&gt;;
+}
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Key Concepts:</h3>
+                    <ul>
+                        <li><strong>BrowserRouter:</strong> Provides routing context for the entire application</li>
+                        <li><strong>Routes:</strong> Container for all Route components</li>
+                        <li><strong>Route:</strong> Defines a path and the component to render</li>
+                        <li><strong>Link:</strong> Creates navigation links without page refresh</li>
+                        <li><strong>useParams:</strong> Hook to access URL parameters</li>
+                        <li><strong>useNavigate:</strong> Hook for programmatic navigation</li>
+                        <li><strong>Dynamic Routes:</strong> Use :parameter syntax for URL parameters</li>
+                        <li><strong>404 Route:</strong> Use path="*" as a catch-all for undefined routes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="index.html">← View Question 1 (Employee Tax Calculator)</a>
+        </div>
+    </div>
+</body>
+</html>
