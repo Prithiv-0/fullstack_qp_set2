@@ -46,7 +46,9 @@ jobs:
           mkdir -p _site
           cp -r employee-tax-calculator/dist/* _site/
           cp theory-answers.html _site/
-          cp realpaper.pdf _site/ || true
+          if [ -f realpaper.pdf ]; then
+            cp realpaper.pdf _site/
+          fi
           
       - name: Setup Pages
         uses: actions/configure-pages@v5

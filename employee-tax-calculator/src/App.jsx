@@ -10,21 +10,44 @@ function App() {
   const [grade, setGrade] = useState('')
   const [bonus, setBonus] = useState(0)
 
+  // Salary calculation percentages
+  const SALARY_PERCENTAGES = {
+    DA: 0.30,
+    HRA: 0.10,
+    SPECIAL_ALLOWANCE: 0.05
+  }
+
+  // Grade ranges
+  const GRADE_RANGES = {
+    A: { min: 10000, max: 20000 },
+    B: { min: 20001, max: 30000 },
+    C: { min: 30001, max: 40000 },
+    EXC: { min: 40001 }
+  }
+
+  // Bonus percentages by grade
+  const BONUS_PERCENTAGES = {
+    A: 0.15,
+    B: 0.12,
+    C: 0.06,
+    EXC: 0.05
+  }
+
   // Calculate salary components when basic pay changes
   const handleBasicPayChange = (e) => {
     const value = parseFloat(e.target.value) || 0
     setBasicPay(value)
     
     // Calculate DA (30% of BasicPay)
-    const calculatedDA = value * 0.30
+    const calculatedDA = value * SALARY_PERCENTAGES.DA
     setDA(calculatedDA)
     
     // Calculate HRA (10% of BasicPay)
-    const calculatedHRA = value * 0.10
+    const calculatedHRA = value * SALARY_PERCENTAGES.HRA
     setHRA(calculatedHRA)
     
     // Calculate Special Allowance (5% of BasicPay)
-    const calculatedSpecialAllowance = value * 0.05
+    const calculatedSpecialAllowance = value * SALARY_PERCENTAGES.SPECIAL_ALLOWANCE
     setSpecialAllowance(calculatedSpecialAllowance)
     
     // Calculate Total Salary
@@ -39,13 +62,13 @@ function App() {
   // Check and display grade based on total salary
   const checkGrade = () => {
     let employeeGrade = ''
-    if (totalSalary >= 10000 && totalSalary <= 20000) {
+    if (totalSalary >= GRADE_RANGES.A.min && totalSalary <= GRADE_RANGES.A.max) {
       employeeGrade = 'A'
-    } else if (totalSalary >= 20001 && totalSalary <= 30000) {
+    } else if (totalSalary >= GRADE_RANGES.B.min && totalSalary <= GRADE_RANGES.B.max) {
       employeeGrade = 'B'
-    } else if (totalSalary >= 30001 && totalSalary <= 40000) {
+    } else if (totalSalary >= GRADE_RANGES.C.min && totalSalary <= GRADE_RANGES.C.max) {
       employeeGrade = 'C'
-    } else if (totalSalary > 40000) {
+    } else if (totalSalary >= GRADE_RANGES.EXC.min) {
       employeeGrade = 'EXC'
     }
     setGrade(employeeGrade)
@@ -56,14 +79,8 @@ function App() {
     let calculatedBonus = 0
     const basic = parseFloat(basicPay) || 0
     
-    if (grade === 'A') {
-      calculatedBonus = basic * 0.15
-    } else if (grade === 'B') {
-      calculatedBonus = basic * 0.12
-    } else if (grade === 'C') {
-      calculatedBonus = basic * 0.06
-    } else if (grade === 'EXC') {
-      calculatedBonus = basic * 0.05
+    if (BONUS_PERCENTAGES[grade]) {
+      calculatedBonus = basic * BONUS_PERCENTAGES[grade]
     }
     
     setBonus(calculatedBonus)
