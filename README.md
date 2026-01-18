@@ -4,8 +4,8 @@ This repository contains solutions for all questions from the Full Stack Framewo
 
 ## 🚀 Live Demo
 
-- **Question 1 - Employee Tax Calculator**: [View Live](https://prithiv-0.github.io/fullstack_qp_set2/)
-- **Questions 2-6 - Theory Answers**: [View Live](https://prithiv-0.github.io/fullstack_qp_set2/theory-answers.html)
+- **Question 1 - Employee Tax Calculator (Vercel)**: [View Live](https://employee-tax-calculator.vercel.app)
+- **Questions 2-6 - Theory Answers (GitHub Pages)**: [View Live](https://prithiv-0.github.io/fullstack_qp_set2/theory-answers.html)
 
 ## 📋 Project Overview
 
@@ -71,7 +71,8 @@ Comprehensive answers with code examples for:
 - **Vite** - Build tool and dev server
 - **HTML5/CSS3** - Styling and markup
 - **GitHub Actions** - CI/CD for automated deployment
-- **GitHub Pages** - Hosting
+- **GitHub Pages** - Hosting for theory answers
+- **Vercel** - Hosting for the React calculator
 
 ## 📦 Project Structure
 
@@ -86,7 +87,7 @@ fullstack_qp_set2/
 │   ├── package.json            # Dependencies
 │   └── vite.config.js          # Vite configuration
 ├── theory-answers.html          # Theory answers page (Questions 2-6)
-├── index.html                   # Deployed calculator (root)
+├── index.html                   # Landing page for GitHub Pages
 ├── assets/                      # Built assets
 ├── .github/workflows/           # GitHub Actions workflows
 └── README.md                    # This file
@@ -129,16 +130,10 @@ fullstack_qp_set2/
 
 ## 🌐 Deployment
 
-The project is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+- **Employee Tax Calculator**: Deploy the `employee-tax-calculator` folder to Vercel.
+- **Theory Answers**: GitHub Pages publishes the static HTML files in the repository root.
 
-### Manual Deployment
-
-To deploy manually:
-```bash
-npm run build
-# Copy dist/* to root directory
-# Commit and push changes
-```
+If the Vercel URL changes, update the links in `index.html`, `theory-answers.html`, and this README.
 
 ## 📸 Screenshots
 

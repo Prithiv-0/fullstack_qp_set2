@@ -1,5 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Stack Frameworks - Exam Solutions</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2.5rem;
+        color: #2c3e50;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.6rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #6c7a89;
+        font-size: 1.15rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.75rem;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.75rem;
+        border-radius: 18px;
+        text-decoration: none;
+        color: inherit;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border: 1px solid rgba(102, 126, 234, 0.15);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      }
+
+      .card span {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.75rem;
+        color: #667eea;
+        font-weight: 600;
+      }
+
+      .card h2 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+      }
+
+      .card p {
+        color: #55606d;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .footer-links a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding: 1.5rem;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Full Stack Frameworks - Exam Solutions</h1>
+      <p class="subtitle">Quick access to the React app and theory answers.</p>
+
+      <section class="cards">
+        <a
+          class="card"
+          href="https://employee-tax-calculator.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Question 1</span>
+          <h2>Employee Tax Calculator (React)</h2>
+          <p>Hosted on Vercel for a full React experience.</p>
+        </a>
+
+        <a class="card" href="theory-answers.html">
+          <span>Questions 2-6</span>
+          <h2>Theory Answers</h2>
+          <p>Static HTML solutions hosted on GitHub Pages.</p>
+        </a>
+      </section>
+
+      <div class="footer-links">
+        <a href="realpaper.pdf">Question Paper (PDF)</a>
+        <a href="theory-answers.html">Open Theory Answers</a>
+      </div>
+    </main>
   </body>
 </html>
